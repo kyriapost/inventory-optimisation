@@ -1,0 +1,29 @@
+# === CREDENTIALS — never commit ===
+.env
+*.key
+secrets.json
+
+# === PYTHON ===
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# === JUPYTER ===
+.ipynb_checkpoints/
+
+# === DATA ===
+data/raw/*.xlsx
+data/raw/*.csv
+data/processed/
+*.db
+*.sqlite
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/
