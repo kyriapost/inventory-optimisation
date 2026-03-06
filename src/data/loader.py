@@ -1,9 +1,8 @@
 from __future__ import annotations
 import logging
 import pandas as pd
-from sqlalchemy import select, text
+from sqlalchemy import text
 from src.data.database import get_engine
-from src.data.models import WeeklyDemand, SKUMetadata
 
 log = logging.getLogger(__name__)
 
