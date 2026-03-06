@@ -1,5 +1,4 @@
-from datetime import date
-from sqlalchemy import Column, String, Integer, Float, Date, UniqueConstraint, Index, text
+from sqlalchemy import Column, String, Integer, Float, Date, UniqueConstraint, Index
 from sqlalchemy.orm import DeclarativeBase
 
 class Base(DeclarativeBase):
