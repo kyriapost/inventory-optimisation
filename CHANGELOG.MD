@@ -34,7 +34,7 @@ load_sku_metadata)
 ### Key modelling decision 
 - Negative Binomial distribution selected based on V/M ratio evidence.This decision is documented in Section 4 of the EDA notebook 
 
-## [0.5.0] — [7/3/2026] 
+## [0.4.0] — [7/3/2026] 
 ### Added - src/models/distribution.py 
   - fit_negative_binomial(): MLE via Nelder-Mead, NBParams dataclass 
   - fit_all_skus(): batch fitting with KS pass rate logging - src/models/inventory.py 
@@ -45,3 +45,14 @@ load_sku_metadata)
 ### Technical decisions 
 - NBParams dataclass as contract between distribution and inventory modules 
 - Lead-time demand: NB(n*L, p) scaling — IID weekly demand assumption documented as known limitation in methodology.md (to be written Stage 6)
+
+## [0.5.0] — [7/3/2026] 
+### Added 
+- src/models/policy.py 
+- simulate_policy(): periodic review (s,S) simulation with full cost tracking 
+- optimise_ss_policy(): grid search around analytical NB starting point 
+- run_sku_pipeline(): single function end-to-end for one SKU - src/models/baselines.py 
+- compute_heuristic_baseline(): 6-week fixed rule 
+- compute_normal_baseline(): Normal-assumption (s,S) 
+- evaluate_on_holdout(): Q4 held-out evaluation for any policy 
+- tests/test_policy.py: 11 tests 
