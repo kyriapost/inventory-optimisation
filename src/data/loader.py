@@ -43,6 +43,7 @@ def load_weekly_demand(sku_ids: list[str] | None = None, min_weeks: int = 40) ->
         raise ValueError('No demand data found. Check database is populated.') 
   
     df['week_start'] = pd.to_datetime(df['week_start']) 
+    df = fill_zero_demand_weeks(df)
   
     # Filter to SKUs with sufficient history 
     if min_weeks > 0: 
@@ -86,3 +87,27 @@ def get_sku_list(min_weeks: int = 40) -> list[str]:
     """ 
     df = load_weekly_demand(min_weeks=min_weeks) 
     return sorted(df['sku_id'].unique().tolist()) 
+
+def fill_zero_demand_weeks(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Fills missing weeks with zero demand for each SKU.
+    Fills only within each SKU's own active period (first sale to last sale).
+    Does NOT backfill before a SKU's first recorded transaction.
+    """
+    filled = []
+    for sku, group in df.groupby('sku_id'):
+        week_min = group['week_start'].min()
+        week_max = group['week_start'].max()
+        full_weeks = pd.date_range(week_min, week_max, freq='W-MON')
+        full_df = pd.DataFrame({'sku_id': sku, 'week_start': full_weeks})
+        merged = full_df.merge(
+            group[['week_start', 'demand']],
+            on='week_start', how='left'
+        ).fillna({'demand': 0})
+        merged['demand'] = merged['demand'].astype(int)
+        filled.append(merged)
+
+    result = pd.concat(filled, ignore_index=True)
+    log.info(f'After filling zeros: {len(result):,} SKU-weeks '
+             f'(was {len(df):,} — added {len(result) - len(df):,} zero-demand weeks)')
+    return result
