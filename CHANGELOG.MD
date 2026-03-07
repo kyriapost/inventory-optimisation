@@ -65,3 +65,12 @@ load_sku_metadata)
 - notebooks/01_Validation.ipynb: Stage 5 validation report 
 - tests/test_results_loader.py: 4 tests 
 - Alembic migration: Add policy_results table 
+
+## [0.7.0] — [7/3/2026]  ← MILESTONE: Stage 6 complete 
+### Added 
+- docs/methodology.md: complete mathematical methodology (6 sections) 
+- docs/data_dictionary.md: schema documentation for all 3 tables 
+- docs/case_study.md: business narrative with actual results 
+  
+### Changed 
+- README.md: complete rewrite — Quick Start, CI badge, results table, documentation links, project structure diagram 
