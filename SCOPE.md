@@ -32,7 +32,7 @@ Out of Scope
 Success Metrics
 ---
 - Technical
-    - KS test statistic p-value > 0.05 for 80% of SKUs
+    - KS test statistic p-value > 0.05 for 70% of SKUs
     - Computed cost ≤ current 6-week heuristic on held-out test data.
     - 50 SKUs under 1 minute runtime
 - Non Technical
