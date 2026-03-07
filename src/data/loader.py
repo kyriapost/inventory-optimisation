@@ -111,3 +111,40 @@ def fill_zero_demand_weeks(df: pd.DataFrame) -> pd.DataFrame:
     log.info(f'After filling zeros: {len(result):,} SKU-weeks '
              f'(was {len(df):,} — added {len(result) - len(df):,} zero-demand weeks)')
     return result
+
+  
+def load_policy_results(run_date=None) -> pd.DataFrame: 
+    """ 
+    Loads policy optimisation results from the database. 
+  
+    Parameters 
+    ---------- 
+    run_date : date | None — filter to a specific run date. 
+               None returns the most recent run for each SKU. 
+  
+    Returns 
+    ------- 
+    DataFrame with all policy_results columns. 
+    Raises ValueError if no results are found. 
+    """ 
+    engine = get_engine() 
+    if run_date: 
+        query = 'SELECT * FROM policy_results WHERE run_date = :d ORDER BY sku_id' 
+        with engine.connect() as conn: 
+            df = pd.read_sql(text(query), conn, params={'d': run_date}) 
+    else: 
+        # Most recent run per SKU 
+        query = ''' 
+            SELECT * FROM policy_results 
+            WHERE run_date = ( 
+                SELECT MAX(run_date) FROM policy_results 
+            ) 
+            ORDER BY sku_id 
+        ''' 
+        with engine.connect() as conn: 
+            df = pd.read_sql(text(query), conn) 
+  
+    if df.empty: 
+        raise ValueError('No policy results found. Run scripts/run_batch_pipeline.py first.') 
+    log.info(f'Loaded {len(df)} policy results') 
+    return df 
