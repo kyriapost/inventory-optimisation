@@ -56,3 +56,12 @@ load_sku_metadata)
 - compute_normal_baseline(): Normal-assumption (s,S) 
 - evaluate_on_holdout(): Q4 held-out evaluation for any policy 
 - tests/test_policy.py: 11 tests 
+
+## [0.6.0] — [7/3/2026]  ← MILESTONE: Stage 5 complete 
+### Added 
+- src/data/models.py: PolicyResultDB — policy_results table 
+- src/data/loader.py: load_policy_results() 
+- scripts/run_batch_pipeline.py: batch pipeline for all SKUs 
+- notebooks/01_Validation.ipynb: Stage 5 validation report 
+- tests/test_results_loader.py: 4 tests 
+- Alembic migration: Add policy_results table 
