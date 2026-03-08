@@ -1,7 +1,7 @@
 # Inventory Optimisation Dashboard 
   
-[![CI](https://github.com/[USERNAME]/inventoryoptimisation/actions/workflows/ci.yml/badge.svg)](https://github.com/kyriapost/inventory-optimisation/actions) 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://(https://inventory-optimisation-rvgur38xeffzphhdgbgsdu.streamlit.app/)) 
+[![CI](https://github.com/kyriapost/inventory-optimisation/actions/workflows/ci.yml/badge.svg)](https://github.com/kyriapost/inventory-optimisation/actions) 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://inventory-optimisation-rvgur38xeffzphhdgbgsdu.streamlit.app/)
   
 **Live demo:** https://inventory-optimisation-rvgur38xeffzphhdgbgsdu.streamlit.app/
 
