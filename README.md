@@ -5,7 +5,6 @@
   
 **Live demo:** https://inventory-optimisation-rvgur38xeffzphhdgbgsdu.streamlit.app/
 
-[![Python 3.11](https://img.shields.io/badge/python-3.11blue.svg)](https://www.python.org/downloads/release/python-3110/) 
 [![License: MIT](https://img.shields.io/badge/License-MITyellow.svg)](LICENSE) 
   
 A data-driven (s,S) inventory optimisation tool for SME retailers. 
