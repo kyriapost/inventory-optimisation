@@ -1,6 +1,9 @@
 # Inventory Optimisation Dashboard 
   
-[![CI](https://github.com/[USERNAME]/inventoryoptimisation/actions/workflows/ci.yml/badge.svg)](https://github.com/[USERNAME]/inventory-optimisation/actions) 
+[![CI](https://github.com/[USERNAME]/inventoryoptimisation/actions/workflows/ci.yml/badge.svg)](https://github.com/kyriapost/inventory-optimisation/actions) 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://(https://inventory-optimisation-rvgur38xeffzphhdgbgsdu.streamlit.app/)) 
+  
+**Live demo:** https://inventory-optimisation-rvgur38xeffzphhdgbgsdu.streamlit.app/
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11
 blue.svg)](https://www.python.org/downloads/release/python-3110/) 

@@ -74,3 +74,19 @@ load_sku_metadata)
   
 ### Changed 
 - README.md: complete rewrite — Quick Start, CI badge, results table, documentation links, project structure diagram 
+
+## [1.0.0] — [8/3/2026]  ← PROJECT COMPLETE 
+### Added 
+- app/streamlit_app.py: main entry point with @st.cache_data 
+- app/pages/1_Overview.py: portfolio summary, SCOPE metrics, top 10 
+- app/pages/2_SKU_Explorer.py: demand history, NB fit overlay, policy panel 
+- app/pages/3_Results.py: full results table with filters and CSV download 
+- app/pages/4_Baselines.py: scatter comparison, wins/losses pie 
+- app/pages/5_Methodology.py: inline methodology document rendering 
+- .streamlit/config.toml: theme configuration 
+- src/data/database.py: Streamlit secrets fallback for cloud deployment 
+  
+### Deployed 
+- Live URL: https://inventory-optimisation-rvgur38xeffzphhdgbgsdu.streamlit.app/
+
+### Tagged: v1.0.0 — project complete 
